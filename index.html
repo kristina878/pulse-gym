@@ -197,6 +197,36 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
 .feature-item{border-color:#c6d86a}
 @media(max-width:760px){.hero-inner{padding-top:150px;padding-bottom:56px}.hero h1{font-size:clamp(4.4rem,20vw,6.5rem)}.hero-video-hint{display:none}.hero-bottom-note{right:22px;bottom:24px}.hero:before{background:linear-gradient(90deg,rgba(18,18,17,.58),rgba(18,18,17,.20)),linear-gradient(0deg,rgba(12,12,11,.70),rgba(18,18,17,.18))}}
 
+
+/* Navigation and moving ticker refinements */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:300;background:transparent;color:#fff;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;transition:background .28s ease,backdrop-filter .28s ease,box-shadow .28s ease}
+.site-header .nav{min-height:88px;padding-block:8px;gap:28px;transition:min-height .25s ease}
+.site-header.is-scrolled{background:rgba(31,30,27,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.12)}
+.site-header.is-scrolled .nav{min-height:78px}
+.site-header .brand small{color:rgba(255,255,255,.65)}
+.site-header .nav-links{gap:clamp(14px,1.7vw,27px);font-size:.82rem;font-weight:500;letter-spacing:.01em}
+.site-header .nav-links a:hover{color:#d5e39a}
+.site-header .menu-toggle{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);border-radius:50%;color:#fff}
+.hero-inner{padding-top:205px}
+.hero-content{padding-bottom:8px}
+.hero-bottom-note,.hero-video-hint{display:none!important}
+.ticker{overflow:hidden;white-space:nowrap;background:#242420;color:rgba(255,255,255,.78);border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);font-size:.67rem;font-weight:500;letter-spacing:.16em}
+.ticker-track{display:flex;width:max-content;animation:pulseTicker 34s linear infinite;will-change:transform}
+.ticker-inner{display:flex;flex:0 0 auto;align-items:center;justify-content:flex-start;gap:32px;padding:16px 16px}
+.ticker span:after{content:"✳";color:#c6d86a;padding-left:32px}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes pulseTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:960px){.site-header .nav{min-height:78px;gap:14px}.site-header .nav-links{gap:12px;font-size:.74rem}.hero-inner{padding-top:175px}}
+@media(max-width:760px){.site-header .nav,.site-header.is-scrolled .nav{min-height:70px}.site-header .nav-links{inset:70px 0 auto;background:rgba(31,30,27,.96);color:#fff;backdrop-filter:blur(16px)}.site-header .nav-links a{border-bottom-color:rgba(255,255,255,.13)}.hero-inner{padding-top:150px;padding-bottom:60px}.ticker-inner{padding:13px 14px;gap:22px}.ticker-track{animation-duration:27s}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}.site-header,.site-header .nav{transition:none}}
+/* Hero CTA placement: keep the lower action buttons on the right on desktop */
+.hero-inner{position:relative}
+.hero-buttons{position:absolute;right:0;bottom:82px;margin-top:0;justify-content:flex-end;z-index:5;gap:12px}
+@media(max-width:960px) and (min-width:761px){.hero-buttons{right:0;bottom:66px;gap:9px}.hero-buttons .btn{padding-inline:18px;font-size:.76rem}}
+@media(max-width:760px){.hero-buttons{position:static;right:auto;bottom:auto;margin-top:23px;justify-content:flex-start;gap:9px}.hero-inner{align-items:flex-end}}
+/* Small desktop offset: restore the hero text block slightly to the right. Keep mobile alignment unchanged. */
+@media (min-width: 761px){.hero-content{margin-left:26px}}
+@media (max-width: 760px){.hero-content{margin-left:0}}
 </style>
 </head>
 <body>
@@ -224,10 +254,9 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
    <div class="hero-buttons"><a class="btn btn-lime" href="#booking">Записаться <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#services">Направления <span aria-hidden="true">—</span></a></div>
   </div>
  </div>
- <div class="hero-bottom-note">PULSE FITNESS CLUB</div>
- <div class="hero-video-hint" aria-hidden="true"><span></span> ОБЗОР КЛУБА</div>
+ 
 </section>
-<div class="ticker" aria-label="PULSE — фитнес-клуб"><div class="ticker-inner"><span>ТРЕНАЖЁРНЫЙ ЗАЛ</span><span>КАРДИО</span><span>ПЕРСОНАЛЬНЫЕ ТРЕНИРОВКИ</span><span>PULSE</span></div></div>
+<div class="ticker" aria-label="PULSE — фитнес-клуб"><div class="ticker-track"><div class="ticker-inner"><span>ТРЕНАЖЁРНЫЙ ЗАЛ</span><span>КАРДИО</span><span>ПЕРСОНАЛЬНЫЕ ТРЕНИРОВКИ</span><span>ГРУППОВЫЕ ЗАНЯТИЯ</span><span>PULSE</span></div><div class="ticker-inner" aria-hidden="true"><span>ТРЕНАЖЁРНЫЙ ЗАЛ</span><span>КАРДИО</span><span>ПЕРСОНАЛЬНЫЕ ТРЕНИРОВКИ</span><span>ГРУППОВЫЕ ЗАНЯТИЯ</span><span>PULSE</span></div></div></div>
 <section class="section" id="about"><div class="container about-grid reveal">
  <div class="about-image-wrap"><img class="about-image" src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1000&q=85" alt="Просторный фитнес-зал" loading="lazy"><div class="image-tag">ТВОЙ СТАРТ — СЕГОДНЯ ✳</div></div>
  <div class="about-copy"><span class="eyebrow">О КЛУБЕ</span><h2>ТВОЁ ПРОСТРАНСТВО ДЛЯ ТРЕНИРОВОК</h2><p>Современное оборудование, продуманное пространство и комфортная атмосфера.</p><p>Приходи за движением, энергией и временем для себя.</p>
@@ -306,6 +335,10 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
  const $ = (s, root=document) => root.querySelector(s);
  const $$ = (s, root=document) => [...root.querySelectorAll(s)];
  const nav = $('#navLinks'), toggle = $('#menuToggle');
+ const siteHeader = $('.site-header');
+ const updateHeader = () => siteHeader.classList.toggle('is-scrolled', window.scrollY > 30);
+ updateHeader();
+ window.addEventListener('scroll', updateHeader, {passive:true});
  toggle.addEventListener('click', () => {
    const open = nav.classList.toggle('open');
    document.body.classList.toggle('menu-open', open);
