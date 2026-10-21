@@ -321,6 +321,37 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
 @media(max-width:760px){#trainers.trainers-section{padding-top:68px;padding-bottom:68px}#trainers .section-head{display:block}#trainers .section-head>p{margin-top:14px}.editorial-trainers .trainer-card{padding:12px 12px 13px}.editorial-trainers .trainer-info{padding-top:11px}.editorial-trainers .trainer-info h3{font-size:.92rem}.editorial-trainers .trainer-info p{font-size:.75rem}.editorial-trainers .trainer-specialty{font-size:.58rem}}
 @media(max-width:430px){.trainers-grid.editorial-trainers{grid-template-columns:repeat(2,minmax(0,1fr))}.editorial-trainers .trainer-card{padding:9px}.editorial-trainers .trainer-info h3{font-size:.87rem}}
 
+
+
+/* PULSE facts strip — dark graphite, matching the cinematic motion section */
+.pulse-facts{background:#25292d;color:#fff;padding:54px 0 58px;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12)}
+.pulse-facts-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(22px,4vw,64px);max-width:1230px}
+.pulse-facts-grid article{min-width:0;padding:4px 0 4px clamp(14px,1.7vw,24px);border-left:1px solid rgba(255,255,255,.2)}
+.pulse-facts-grid article:first-child{border-left:0;padding-left:0}
+.pulse-facts-grid strong{display:block;color:#c6ff00;font-size:clamp(3rem,5.4vw,4.3rem);line-height:.98;letter-spacing:-.055em;font-weight:750;margin-bottom:10px}
+.pulse-facts-grid b{display:block;color:#fff;font-size:.98rem;line-height:1.3;font-weight:750;margin-bottom:5px}
+.pulse-facts-grid p{margin:0;color:#c0c3c1;font-size:.86rem;line-height:1.5;max-width:245px}
+@media(max-width:760px){.pulse-facts{padding:36px 0}.pulse-facts-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:27px 20px}.pulse-facts-grid article:nth-child(odd){border-left:0;padding-left:0}.pulse-facts-grid strong{font-size:3rem}.pulse-facts-grid b{font-size:.92rem}.pulse-facts-grid p{font-size:.8rem}}
+
+
+/* Larger top navigation: clearer hierarchy while keeping the quiet PULSE look. */
+@media (min-width: 1100px){
+  .site-header .nav{min-height:100px;gap:clamp(26px,3vw,46px)}
+  .site-header.is-scrolled .nav{min-height:90px}
+  .site-header .brand{font-size:1.78rem;gap:12px}
+  .site-header .brand-mark{width:40px;height:40px;font-size:1.25rem;border-radius:2px}
+  .site-header .brand small{font-size:.61rem;letter-spacing:.2em}
+  .site-header .nav-links{font-size:.98rem;gap:clamp(18px,1.9vw,31px);font-weight:500;letter-spacing:0}
+  .site-header .nav-actions .btn{font-size:.92rem;min-height:50px;padding:15px 27px}
+}
+@media (min-width: 961px) and (max-width: 1099px){
+  .site-header .nav{min-height:90px;gap:18px}
+  .site-header.is-scrolled .nav{min-height:82px}
+  .site-header .brand{font-size:1.65rem}
+  .site-header .brand-mark{width:38px;height:38px}
+  .site-header .nav-links{font-size:.88rem;gap:14px}
+  .site-header .nav-actions .btn{font-size:.84rem;padding:13px 20px}
+}
 </style>
 </head>
 <body>
@@ -356,6 +387,15 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
  <div class="check-list"><div><span>✓</span>Современный зал</div><div><span>✓</span>Персональный подход</div><div><span>✓</span>Разные форматы</div><div><span>✓</span>Твой темп</div></div><a class="btn btn-lime" href="#services">Направления ↗</a></div>
  <div class="about-image-wrap"><img class="about-image" src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1000&q=85" alt="Просторный фитнес-зал" loading="lazy"><div class="image-tag">ТВОЙ СТАРТ — СЕГОДНЯ ✳</div></div>
 </div></section>
+
+<section class="pulse-facts" aria-label="Фитнес-клуб PULSE в цифрах">
+ <div class="container pulse-facts-grid">
+  <article><strong>16</strong><b>часов в день</b><p>с 07:00 до 23:00 в будни</p></article>
+  <article><strong>10</strong><b>тренеров</b><p>мужские и женские, под разные цели</p></article>
+  <article><strong>4</strong><b>зоны в зале</b><p>кардио, силовые, свободные веса, функциональная</p></article>
+  <article><strong>0</strong><b>сум за пробное</b><p>первое занятие бесплатно и без обязательств</p></article>
+ </div>
+</section>
 
 <section class="section services" id="services"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">НАПРАВЛЕНИЯ</span><h2>ВЫБЕРИ СВОЙ<br>ФОРМАТ</h2></div></div>
  <div class="service-grid">
