@@ -438,11 +438,59 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
 .editorial-trainers .trainer-stars{color:#758f00;font-size:.9rem;letter-spacing:.08em;line-height:1;white-space:nowrap}
 .editorial-trainers .trainer-score{font-size:.82rem;color:#4b5147;font-weight:700;font-variant-numeric:tabular-nums}
 .editorial-trainers .trainer-book{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin-top:auto;padding-top:14px;border-top:1px solid #e5e5df;color:#176e55;font-size:.85rem;font-weight:800;line-height:1.4}
+.editorial-trainers button.trainer-book{appearance:none;border:0;background:transparent;font-family:inherit;text-align:left;cursor:pointer}
 .editorial-trainers .trainer-book span{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:#edf3d1;color:#25292d;font-size:1rem;transition:background .2s,transform .2s}
 .editorial-trainers .trainer-card:hover .trainer-book span{background:#c6ff00;transform:translate(2px,-2px)}
+.editorial-trainers .trainer-book:focus-visible,.trainer-dialog-close:focus-visible{outline:3px solid #91ad00;outline-offset:3px}
 @media(max-width:1100px){.trainers-grid.editorial-trainers{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){#trainers.trainers-section{padding-top:65px;padding-bottom:70px}.trainers-grid.editorial-trainers{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.editorial-trainers .trainer-info{padding:15px 14px}.editorial-trainers .trainer-info h3{font-size:1.08rem}.editorial-trainers .trainer-info p{font-size:.79rem}.editorial-trainers .trainer-rating{margin:12px 0 12px;padding-top:10px}.editorial-trainers .trainer-book{font-size:.77rem}}
 @media(max-width:430px){.trainers-grid.editorial-trainers{grid-template-columns:1fr;gap:16px}.editorial-trainers .trainer-card img{aspect-ratio:1.25/1}.editorial-trainers .trainer-info{padding:18px}.editorial-trainers .trainer-info h3{font-size:1.2rem}}
+</style>
+
+<style>
+
+/* Individual trainer profile modal */
+body.trainer-modal-open{overflow:hidden}
+.trainer-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(18,20,20,.62);backdrop-filter:blur(5px)}
+.trainer-modal.is-open{display:flex}
+.trainer-dialog{position:relative;width:min(680px,100%);max-height:min(92vh,900px);overflow:auto;background:#fbfaf7;color:#242725;border:1px solid rgba(255,255,255,.6);border-radius:18px;box-shadow:0 24px 90px rgba(0,0,0,.28);scrollbar-width:thin;scrollbar-color:#bbc76b transparent}
+.trainer-dialog-top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 30px 12px}
+.trainer-dialog-kicker{font-size:.67rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#6c8100}
+.trainer-dialog-kicker:before{content:"";display:inline-block;width:19px;height:2px;background:#c6d86a;vertical-align:middle;margin-right:9px}
+.trainer-dialog-close{flex:0 0 38px;width:38px;height:38px;border:1px solid #dedfd7;border-radius:50%;background:#fff;color:#25292d;font-size:1.3rem;line-height:1;display:grid;place-items:center;transition:background .2s,transform .2s}
+.trainer-dialog-close:hover{background:#c6ff00;transform:rotate(90deg)}
+.trainer-dialog-head{padding:0 30px 22px;display:grid;grid-template-columns:175px 1fr;gap:24px;align-items:center}
+.trainer-dialog-photo{display:block;width:175px;height:190px;object-fit:cover;border-radius:12px;background:#e4e5df}
+.trainer-dialog-head h2{margin:0 0 9px;font-size:clamp(1.8rem,4vw,2.55rem);letter-spacing:-.055em;line-height:1.02}
+.trainer-dialog-role{margin:0;color:#637800;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.trainer-dialog-intro{margin:12px 0 14px;color:#676b65;font-size:.93rem;line-height:1.55}
+.trainer-dialog-rating{display:flex;align-items:center;gap:10px;font-size:.84rem;color:#6a6d65}
+.trainer-dialog-rating .stars{letter-spacing:.1em;color:#718900;font-size:1rem}
+.trainer-dialog-body{padding:0 30px 28px}
+.trainer-dialog-summary{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.trainer-detail-chip{padding:14px 15px;background:#f0f1e9;border:1px solid #e2e4d9;border-radius:10px}
+.trainer-detail-chip span{display:block;margin-bottom:4px;font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#777b70}
+.trainer-detail-chip strong{display:block;font-size:.9rem;line-height:1.4;font-weight:700}
+.trainer-detail-section{padding:19px 0;border-top:1px solid #e0e1d9}
+.trainer-detail-section h3{margin:0 0 12px;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:#666b61}
+.trainer-detail-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;margin:0;padding:0;list-style:none}
+.trainer-detail-list li{position:relative;padding-left:20px;font-size:.9rem;line-height:1.5;color:#383b36}
+.trainer-detail-list li:before{content:"✓";position:absolute;left:0;top:0;color:#758b00;font-weight:900}
+.trainer-detail-section p{margin:0;color:#656961;font-size:.9rem;line-height:1.65}
+.trainer-modal-booking{margin-top:18px;padding:23px;background:#f9dfd9;border-radius:13px}
+.trainer-modal-booking h3{max-width:360px;margin:0 0 8px;font-size:clamp(1.45rem,4vw,2rem);line-height:1.02;letter-spacing:-.045em;text-transform:uppercase}
+.trainer-modal-booking>p{margin:0 0 17px;color:#69645f;font-size:.82rem;line-height:1.5}
+.trainer-modal-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.trainer-modal-form label{display:flex;flex-direction:column;gap:6px;font-size:.7rem;font-weight:800;color:#4f514d}
+.trainer-modal-form input{width:100%;min-width:0;padding:12px 13px;border:1px solid #d8d6d0;border-radius:5px;background:#fff;color:#25292d;outline:none}
+.trainer-modal-form input:focus{border-color:#718900;box-shadow:0 0 0 3px rgba(198,216,106,.25)}
+.trainer-modal-form .btn{grid-column:1/-1;width:100%;background:#176e55;color:#fff;border-radius:4px;min-height:48px;margin-top:3px}
+.trainer-modal-form .btn:hover{background:#105640}
+.trainer-modal-note{margin:11px 0 0!important;font-size:.68rem!important;color:#6f6a64!important}
+.trainer-modal-status{display:none;margin-top:10px;font-size:.8rem;line-height:1.5;color:#245d4d}
+.trainer-modal-status.show{display:block}
+@media(max-width:600px){.trainer-modal{padding:10px}.trainer-dialog{max-height:94vh;border-radius:14px}.trainer-dialog-top{padding:18px 18px 10px}.trainer-dialog-head{padding:0 18px 18px;grid-template-columns:100px 1fr;gap:14px;align-items:start}.trainer-dialog-photo{width:100px;height:118px}.trainer-dialog-head h2{font-size:1.65rem}.trainer-dialog-intro{font-size:.81rem;margin:8px 0 10px}.trainer-dialog-body{padding:0 18px 18px}.trainer-dialog-summary{gap:8px}.trainer-detail-chip{padding:11px}.trainer-detail-chip strong{font-size:.79rem}.trainer-detail-list{grid-template-columns:1fr;gap:8px}.trainer-modal-booking{padding:17px}.trainer-modal-form{grid-template-columns:1fr}.trainer-modal-form .btn{grid-column:auto}}
+
 </style>
 </head>
 <body>
@@ -499,14 +547,14 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
  </div></div></section>
 <section class="section trainers-section" id="trainers"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">ТРЕНЕРЫ</span><h2>КОМАНДА PULSE</h2></div><p>Тренеры, которые помогут выстроить тренировку под твой ритм и цели.</p></div>
  <div class="trainers-grid editorial-trainers">
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&h=700&q=85" alt="Алексей, фитнес-тренер" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">СИЛОВЫЕ ТРЕНИРОВКИ</span><h3>Алексей</h3><p>Индивидуальная работа над техникой и силой.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><a class="trainer-book" href="#booking" data-trainer="Алексей">Записаться к тренеру <span aria-hidden="true">↗</span></a></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&h=700&q=85" alt="Алия, тренер по пилатесу" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ПИЛАТЕС</span><h3>Алия</h3><p>Баланс, мобильность и осознанная работа с движением.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><a class="trainer-book" href="#booking" data-trainer="Алия">Записаться к тренеру <span aria-hidden="true">↗</span></a></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&h=700&q=85" alt="Денис, фитнес-тренер" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ПЕРСОНАЛЬНЫЙ ТРЕНИНГ</span><h3>Денис</h3><p>План занятий и поддержка на каждом этапе тренировки.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><a class="trainer-book" href="#booking" data-trainer="Денис">Записаться к тренеру <span aria-hidden="true">↗</span></a></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=700&h=700&q=85" alt="Мария, тренер по йоге" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ЙОГА</span><h3>Мария</h3><p>Практика для подвижности, дыхания и внутреннего баланса.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><a class="trainer-book" href="#booking" data-trainer="Мария">Записаться к тренеру <span aria-hidden="true">↗</span></a></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&h=700&q=85" alt="Ильяс, фитнес-тренер" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ОБЩАЯ ПОДГОТОВКА</span><h3>Ильяс</h3><p>Силовые упражнения, базовая техника и выносливость.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><a class="trainer-book" href="#booking" data-trainer="Ильяс">Записаться к тренеру <span aria-hidden="true">↗</span></a></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&h=700&q=85" alt="Анна, фитнес-тренер" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ГРУППОВЫЕ ЗАНЯТИЯ</span><h3>Анна</h3><p>Движение в группе, комфортный темп и поддержка.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><a class="trainer-book" href="#booking" data-trainer="Анна">Записаться к тренеру <span aria-hidden="true">↗</span></a></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=700&h=700&q=85" alt="Роман, фитнес-тренер" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ФИТНЕС ДЛЯ НАЧИНАЮЩИХ</span><h3>Роман</h3><p>Помощь освоиться в зале и выстроить удобный ритм.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><a class="trainer-book" href="#booking" data-trainer="Роман">Записаться к тренеру <span aria-hidden="true">↗</span></a></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&h=700&q=85" alt="Дарья, тренер по пилатесу" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ПИЛАТЕС</span><h3>Дарья</h3><p>Работа над балансом, гибкостью и контролем движения.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><a class="trainer-book" href="#booking" data-trainer="Дарья">Записаться к тренеру <span aria-hidden="true">↗</span></a></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&h=700&q=85" alt="Алексей, фитнес-тренер" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">СИЛОВЫЕ ТРЕНИРОВКИ</span><h3>Алексей</h3><p>Индивидуальная работа над техникой и силой.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><button class="trainer-book" type="button" data-open-trainer="Алексей" aria-haspopup="dialog">Подробнее о тренере <span aria-hidden="true">↗</span></button></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&h=700&q=85" alt="Алия, тренер по пилатесу" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ПИЛАТЕС</span><h3>Алия</h3><p>Баланс, мобильность и осознанная работа с движением.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><button class="trainer-book" type="button" data-open-trainer="Алия" aria-haspopup="dialog">Подробнее о тренере <span aria-hidden="true">↗</span></button></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&h=700&q=85" alt="Денис, фитнес-тренер" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ПЕРСОНАЛЬНЫЙ ТРЕНИНГ</span><h3>Денис</h3><p>План занятий и поддержка на каждом этапе тренировки.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><button class="trainer-book" type="button" data-open-trainer="Денис" aria-haspopup="dialog">Подробнее о тренере <span aria-hidden="true">↗</span></button></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=700&h=700&q=85" alt="Мария, тренер по йоге" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ЙОГА</span><h3>Мария</h3><p>Практика для подвижности, дыхания и внутреннего баланса.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><button class="trainer-book" type="button" data-open-trainer="Мария" aria-haspopup="dialog">Подробнее о тренере <span aria-hidden="true">↗</span></button></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&h=700&q=85" alt="Ильяс, фитнес-тренер" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ОБЩАЯ ПОДГОТОВКА</span><h3>Ильяс</h3><p>Силовые упражнения, базовая техника и выносливость.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><button class="trainer-book" type="button" data-open-trainer="Ильяс" aria-haspopup="dialog">Подробнее о тренере <span aria-hidden="true">↗</span></button></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&h=700&q=85" alt="Анна, фитнес-тренер" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ГРУППОВЫЕ ЗАНЯТИЯ</span><h3>Анна</h3><p>Движение в группе, комфортный темп и поддержка.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><button class="trainer-book" type="button" data-open-trainer="Анна" aria-haspopup="dialog">Подробнее о тренере <span aria-hidden="true">↗</span></button></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=700&h=700&q=85" alt="Роман, фитнес-тренер" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ФИТНЕС ДЛЯ НАЧИНАЮЩИХ</span><h3>Роман</h3><p>Помощь освоиться в зале и выстроить удобный ритм.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><button class="trainer-book" type="button" data-open-trainer="Роман" aria-haspopup="dialog">Подробнее о тренере <span aria-hidden="true">↗</span></button></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&h=700&q=85" alt="Дарья, тренер по пилатесу" loading="lazy"><div class="trainer-info"><span class="trainer-specialty">ПИЛАТЕС</span><h3>Дарья</h3><p>Работа над балансом, гибкостью и контролем движения.</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div><button class="trainer-book" type="button" data-open-trainer="Дарья" aria-haspopup="dialog">Подробнее о тренере <span aria-hidden="true">↗</span></button></div></article>
  </div></div></section>
 <section class="pulse-motion"><div class="container motion-grid"><div class="motion-copy"><span class="eyebrow">АТМОСФЕРА PULSE</span><h2>ДВИЖЕНИЕ<br>В ТВОЁМ<br><span>РИТМЕ.</span></h2><p>Место, где можно сосредоточиться на себе и своей цели.</p><a class="btn btn-lime" href="#booking">Записаться ↗</a><div class="motion-tags"><span>СИЛА</span><span>БАЛАНС</span><span>ЭНЕРГИЯ</span></div></div><div class="motion-visual"><img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1100&q=85" alt="Атмосфера интенсивной тренировки" loading="lazy"><div class="motion-stamp">FIND<br>YOUR<br>PULSE <b>✳</b></div></div></div></section>
 <section class="section pricing" id="pricing"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">АБОНЕМЕНТЫ</span><h2>ВЫБЕРИ СВОЙ<br>РИТМ</h2></div><p>Выбери удобное время для тренировок и занимайся в своём темпе.</p></div>
@@ -577,6 +625,33 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
  <div class="footer-col"><h4>Связь</h4><a href="#contacts">Контакты</a><a href="#booking">Оставить заявку</a><a href="#contacts">Адрес и расписание</a><a href="#privacy" id="privacyLink">Политика конфиденциальности</a></div>
  </div><div class="footer-bottom"><span>© <span id="year"></span> PULSE Fitness Club. Все права защищены.</span><span>Сделано с энергией ✳</span></div></div></footer>
 
+
+<div class="trainer-modal" id="trainerModal" aria-hidden="true">
+ <section class="trainer-dialog" role="dialog" aria-modal="true" aria-labelledby="trainerModalName" tabindex="-1">
+  <div class="trainer-dialog-top"><span class="trainer-dialog-kicker">ПРОФИЛЬ ТРЕНЕРА PULSE</span><button class="trainer-dialog-close" id="trainerModalClose" type="button" aria-label="Закрыть профиль">×</button></div>
+  <div class="trainer-dialog-head">
+   <img class="trainer-dialog-photo" id="trainerModalPhoto" src="" alt="">
+   <div><p class="trainer-dialog-role" id="trainerModalRole"></p><h2 id="trainerModalName"></h2><p class="trainer-dialog-intro" id="trainerModalIntro"></p><div class="trainer-dialog-rating" aria-label="Демонстрационная оценка 5 из 5"><span class="stars" aria-hidden="true">★★★★★</span><strong>5,0</strong><span>оценка в макете</span></div></div>
+  </div>
+  <div class="trainer-dialog-body">
+   <div class="trainer-dialog-summary"><div class="trainer-detail-chip"><span>Фокус занятий</span><strong id="trainerModalFocus"></strong></div><div class="trainer-detail-chip"><span>Формат</span><strong id="trainerModalFormat"></strong></div></div>
+   <section class="trainer-detail-section"><h3>С чем работает тренер</h3><ul class="trainer-detail-list" id="trainerModalFocusList"></ul></section>
+   <section class="trainer-detail-section"><h3>Подход к тренировкам</h3><p id="trainerModalApproach"></p></section>
+   <section class="trainer-detail-section"><h3>Как начать</h3><p>На первой встрече можно обсудить цели, желаемый формат и комфортную нагрузку. Конкретный план занятий согласуется с тренером.</p></section>
+   <div class="trainer-modal-booking">
+    <h3>Записаться на тренировку</h3><p>Оставь имя и телефон — перенесём их в основную форму PULSE для подготовки заявки.</p>
+    <form class="trainer-modal-form" id="trainerModalForm">
+     <label>Как к тебе обращаться<input id="trainerQuickName" name="name" autocomplete="name" placeholder="Твоё имя" required minlength="2"></label>
+     <label>Номер телефона<input id="trainerQuickPhone" name="phone" type="tel" autocomplete="tel" placeholder="+998 90 123 45 67" required></label>
+     <button type="submit" class="btn">Перейти к записи ↗</button>
+    </form>
+    <p class="trainer-modal-note">Заявка не отправляется автоматически: после перехода проверь данные и подтверди форму на сайте.</p>
+    <div class="trainer-modal-status" id="trainerModalStatus" role="status" aria-live="polite"></div>
+   </div>
+  </div>
+ </section>
+</div>
+
 <button class="back-top" id="backTop" aria-label="Наверх">↑</button>
 <script>
 (() => {
@@ -618,9 +693,112 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
  window.addEventListener('scroll', () => backTop.classList.toggle('visible', window.scrollY > 500), {passive:true});
  backTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
  $$('.service-book').forEach(a => a.addEventListener('click', () => { $('#service').value = a.dataset.service; }));
- $$('.trainer-book').forEach(a => a.addEventListener('click', () => {
-   const comment = $('#comment'); comment.value = 'Хочу записаться: ' + a.dataset.trainer + '. ' + comment.value;
+ const trainerProfiles = {
+   'Алексей': {
+     role:'Силовые тренировки',
+     intro:'Работа с техникой, силой и постепенным увеличением нагрузки — с учётом твоего уровня подготовки.',
+     focus:'Сила и техника', format:'Персонально · по цели',
+     points:['Техника базовых упражнений','Постепенный рост нагрузки','Развитие силы и выносливости','План под твой текущий уровень'],
+     approach:'Занятия строятся последовательно: от разбора цели и техники до подбора комфортной нагрузки и отслеживания прогресса.'
+   },
+   'Алия': {
+     role:'Тренер по пилатесу',
+     intro:'Осознанное движение, устойчивость корпуса и развитие мобильности в спокойном темпе.',
+     focus:'Мобильность и контроль', format:'Пилатес · индивидуально',
+     points:['Контроль и точность движений','Работа с мышцами корпуса','Подвижность и гибкость','Осознанное дыхание и темп'],
+     approach:'Внимание уделяется качеству выполнения и постепенному освоению упражнений. Нагрузка подбирается с учётом комфорта и опыта.'
+   },
+   'Денис': {
+     role:'Персональный тренинг',
+     intro:'Структурированные тренировки с понятной последовательностью и фокусом на выбранную цель.',
+     focus:'Техника и прогресс', format:'Персонально · по цели',
+     points:['Разбор техники упражнений','Составление плана тренировок','Работа над общей физической формой','Корректировка нагрузки по самочувствию'],
+     approach:'План занятий помогает двигаться шаг за шагом и поддерживать регулярность. Цели и формат согласуются на первой встрече.'
+   },
+   'Мария': {
+     role:'Тренер по йоге',
+     intro:'Практика для подвижности, дыхания и баланса — с возможностью подобрать комфортную интенсивность.',
+     focus:'Баланс и подвижность', format:'Йога · в своём темпе',
+     points:['Мягкая работа над мобильностью','Дыхательные практики','Баланс и координация','Последовательность асан под уровень'],
+     approach:'Занятия помогают сосредоточиться на движении и дыхании. Интенсивность выбирается исходя из уровня подготовки и самочувствия.'
+   },
+   'Ильяс': {
+     role:'Общая физическая подготовка',
+     intro:'Базовая подготовка, выносливость и грамотное освоение упражнений в тренажёрном зале.',
+     focus:'База и выносливость', format:'Персонально · по уровню',
+     points:['Освоение основных движений','Развитие общей выносливости','Работа с техникой и координацией','Постепенное увеличение нагрузки'],
+     approach:'Работа начинается с текущего уровня подготовки, после чего подбираются упражнения и темп, которые помогают заниматься регулярно.'
+   },
+   'Анна': {
+     role:'Групповые занятия',
+     intro:'Движение в группе с понятной структурой занятия и вниманием к уровню участников.',
+     focus:'Движение и поддержка', format:'Групповые занятия',
+     points:['Тренировки в комфортном темпе','Упражнения на общую физическую форму','Варианты для разных уровней','Поддержка и работа в группе'],
+     approach:'Занятия сочетают движение и последовательную нагрузку. Перед началом можно уточнить уровень группы и формат тренировки.'
+   },
+   'Роман': {
+     role:'Фитнес для начинающих',
+     intro:'Спокойное знакомство с залом, тренажёрами и базовыми упражнениями — без спешки.',
+     focus:'Первые шаги в зале', format:'Персонально · для начинающих',
+     points:['Ориентация в тренажёрном зале','Освоение базовых упражнений','Разбор техники и безопасности','План комфортного старта'],
+     approach:'Вместе можно разобраться с основами и сформировать понятный план первых тренировок, постепенно переходя к более сложным упражнениям.'
+   },
+   'Дарья': {
+     role:'Тренер по пилатесу',
+     intro:'Работа над гибкостью, балансом и контролем движений с вниманием к технике.',
+     focus:'Гибкость и баланс', format:'Пилатес · индивидуально',
+     points:['Контроль положения тела','Мобильность и гибкость','Стабильность корпуса','Плавное освоение упражнений'],
+     approach:'Основное внимание — качеству движений и постепенному развитию контроля над телом. Сложность упражнений подбирается под уровень.'
+   }
+ };
+ const trainerModal=$('#trainerModal'), trainerDialog=$('.trainer-dialog',trainerModal), trainerModalClose=$('#trainerModalClose');
+ let activeTrainer='';
+ const closeTrainerModal=()=>{trainerModal.classList.remove('is-open');trainerModal.setAttribute('aria-hidden','true');document.body.classList.remove('trainer-modal-open');activeTrainer='';};
+ $$('.trainer-book').forEach(btn=>btn.addEventListener('click',()=>{
+   const card=btn.closest('.trainer-card');
+   const name=btn.dataset.openTrainer;
+   const profile=trainerProfiles[name];
+   if(!card||!profile)return;
+   const image=$('img',card);
+   activeTrainer=name;
+   $('#trainerModalName').textContent=name;
+   $('#trainerModalRole').textContent=profile.role;
+   $('#trainerModalIntro').textContent=profile.intro;
+   $('#trainerModalFocus').textContent=profile.focus;
+   $('#trainerModalFormat').textContent=profile.format;
+   $('#trainerModalApproach').textContent=profile.approach;
+   const modalPhoto=$('#trainerModalPhoto'); modalPhoto.src=image.src; modalPhoto.alt=image.alt || (name+', тренер PULSE');
+   $('#trainerModalFocusList').innerHTML=profile.points.map(point=>'<li>'+point.replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))+'</li>').join('');
+   $('#trainerModalStatus').classList.remove('show'); $('#trainerModalStatus').textContent='';
+   $('#trainerQuickName').value=''; $('#trainerQuickPhone').value='';
+   trainerModal.classList.add('is-open');trainerModal.setAttribute('aria-hidden','false');document.body.classList.add('trainer-modal-open');
+   trainerDialog.scrollTop=0; setTimeout(()=>trainerModalClose.focus(),20);
  }));
+ trainerModalClose.addEventListener('click',closeTrainerModal);
+ trainerModal.addEventListener('click',e=>{if(e.target===trainerModal)closeTrainerModal();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&trainerModal.classList.contains('is-open'))closeTrainerModal();});
+ $('#trainerModalForm').addEventListener('submit',e=>{
+   e.preventDefault();
+   const quickName=$('#trainerQuickName').value.trim();
+   const quickPhone=$('#trainerQuickPhone').value.trim();
+   if(quickName.length<2){$('#trainerQuickName').focus();return;}
+   if(quickPhone.replace(/\D/g,'').length<9){$('#trainerQuickPhone').setCustomValidity('Проверь номер телефона');$('#trainerQuickPhone').reportValidity();$('#trainerQuickPhone').setCustomValidity('');return;}
+   $('#name').value=quickName;
+   $('#phone').value=quickPhone;
+   const comment=$('#comment');
+   const trainerLine='Хочу записаться к тренеру: '+activeTrainer+'.';
+   comment.value=comment.value.trim()?trainerLine+' '+comment.value.trim():trainerLine;
+   const profile=trainerProfiles[activeTrainer];
+   const service=$('#service');
+   if(profile){
+     const wanted=profile.role.toLowerCase().includes('пилатес')?'Персональные тренировки':profile.role.toLowerCase().includes('йог')?'Групповые занятия':profile.role.toLowerCase().includes('групповые')?'Групповые занятия':'Персональные тренировки';
+     const option=[...service.options].find(o=>o.text===wanted); if(option)service.value=option.value;
+   }
+   closeTrainerModal();
+   const booking=$('#booking'); booking.scrollIntoView({behavior:'smooth',block:'start'});
+   const status=$('#formStatus');status.className='form-status show info';status.textContent='Контакты перенесены в форму. Проверь данные, отметь согласие на обработку данных и нажми «Подготовить заявку».';
+   setTimeout(()=>$('#consent').focus({preventScroll:true}),700);
+ });
  $$('[data-membership]').forEach(a => a.addEventListener('click', () => {
    const select = $('#membership');
    const value = a.dataset.membership;
