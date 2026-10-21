@@ -286,6 +286,15 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
 @media(max-width:760px){.service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}.service-card img{height:clamp(140px,42vw,210px)}.service-body{padding:12px 0 20px}.service-body h3{font-size:1rem}.service-body p{font-size:.79rem}.trainers-grid.editorial-trainers{grid-template-columns:repeat(2,minmax(0,1fr))}.editorial-trainers .trainer-info{padding:12px}.editorial-trainers .trainer-info h3{font-size:.9rem}.ticker{font-size:.79rem;min-height:54px}.ticker-inner{min-height:54px;padding:14px 22px;gap:26px}.ticker span:after{padding-left:22px}.ticker-track{animation-duration:34s!important}}
 @media(max-width:430px){.service-grid{grid-template-columns:1fr}.service-card img{height:220px}.trainers-grid.editorial-trainers{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+
+/* Wider desktop layout: give sections more breathing room while preserving mobile spacing. */
+@media (min-width: 1200px){
+  .container, .hero-inner{width:min(1280px, calc(100% - 80px));}
+  .service-grid{column-gap:28px;}
+  .about-grid{column-gap:clamp(48px,5vw,82px);}
+  .section-head{gap:36px;}
+}
+
 </style>
 </head>
 <body>
@@ -324,12 +333,12 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
 
 <section class="section services" id="services"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">НАПРАВЛЕНИЯ</span><h2>ВЫБЕРИ СВОЙ<br>ФОРМАТ</h2></div></div>
  <div class="service-grid">
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80" alt="Силовая тренировка" loading="lazy"><div class="service-body"><h3>Тренажёрный зал</h3><p>Свободные веса и тренажёры для силовой работы.</p><a class="text-link service-book" href="#booking" data-service="Тренажёрный зал">Подробнее ↗</a></div></article>
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80" alt="Кардиотренировка" loading="lazy"><div class="service-body"><h3>Кардиотренировки</h3><p>Кардионагрузка в комфортном для тебя темпе.</p><a class="text-link service-book" href="#booking" data-service="Кардиотренировки">Подробнее ↗</a></div></article>
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Персональная тренировка" loading="lazy"><div class="service-body"><h3>Персональные тренировки</h3><p>Индивидуальный план вместе с тренером.</p><a class="text-link service-book" href="#booking" data-service="Персональные тренировки">Подробнее ↗</a></div></article>
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80" alt="Групповое занятие" loading="lazy"><div class="service-body"><h3>Групповые занятия</h3><p>Занятия в группе — движение и поддержка.</p><a class="text-link service-book" href="#booking" data-service="Групповые занятия">Подробнее ↗</a></div></article>
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" alt="Тренировка в зале" loading="lazy"><div class="service-body"><h3>Фитнес для начинающих</h3><p>Поможем освоиться в зале и начать без спешки.</p><a class="text-link service-book" href="#booking" data-service="Фитнес для начинающих">Подробнее ↗</a></div></article>
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=85" alt="Современный тренажёрный зал" loading="lazy"><div class="service-body"><h3>План тренировок</h3><p>Подберём формат и график под твои цели.</p><a class="text-link service-book" href="#booking" data-service="Подбор плана тренировок">Подобрать план ↗</a></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80" alt="Силовая тренировка" loading="lazy"><div class="service-body"><h3>Тренажёрный зал</h3><p>Свободные веса и тренажёры для силовой работы.</p></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80" alt="Кардиотренировка" loading="lazy"><div class="service-body"><h3>Кардиотренировки</h3><p>Кардионагрузка в комфортном для тебя темпе.</p></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Персональная тренировка" loading="lazy"><div class="service-body"><h3>Персональные тренировки</h3><p>Индивидуальный план вместе с тренером.</p></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80" alt="Групповое занятие" loading="lazy"><div class="service-body"><h3>Групповые занятия</h3><p>Занятия в группе — движение и поддержка.</p></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" alt="Тренировка в зале" loading="lazy"><div class="service-body"><h3>Фитнес для начинающих</h3><p>Поможем освоиться в зале и начать без спешки.</p></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=85" alt="Современный тренажёрный зал" loading="lazy"><div class="service-body"><h3>План тренировок</h3><p>Подберём формат и график под твои цели.</p></div></article>
  </div></div></section>
 <section class="section" id="trainers"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">ТРЕНЕРЫ</span><h2>ПОДДЕРЖКА<br>НА ТВОЁМ ПУТИ</h2></div><p>Персональный подход к твоим целям и уровню подготовки.</p></div>
  <div class="trainers-grid editorial-trainers">
