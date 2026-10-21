@@ -295,6 +295,32 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
   .section-head{gap:36px;}
 }
 
+
+/* Trainer grid inspired by the reference: portrait cards, fine dividers and restrained typography. */
+#trainers.trainers-section{background:#f5f4f0;padding-top:84px;padding-bottom:92px}
+#trainers .section-head{align-items:flex-end;margin-bottom:34px;gap:32px}
+#trainers .section-head h2{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;letter-spacing:-.065em;line-height:1.03}
+#trainers .section-head>p{max-width:290px;font-size:.82rem;line-height:1.6;color:#777870}
+.trainers-grid.editorial-trainers{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid #d9d8d2;border-left:1px solid #d9d8d2}
+.editorial-trainers .trainer-card{padding:18px 19px 15px;background:transparent;border:0;border-right:1px solid #d9d8d2;border-bottom:1px solid #d9d8d2;border-radius:0;overflow:hidden;min-width:0;transition:background .22s,color .22s}
+.editorial-trainers .trainer-card img{width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;object-position:center;filter:saturate(.78);border-radius:7px;display:block;transition:filter .25s,transform .45s}
+.editorial-trainers .trainer-card:hover{background:#111214;color:#fff}
+.editorial-trainers .trainer-card:hover img{filter:saturate(.95);transform:scale(1.01)}
+.editorial-trainers .trainer-info{padding:15px 0 2px;background:transparent}
+.editorial-trainers .trainer-info h3{font-size:1rem;font-weight:500;line-height:1.35;letter-spacing:-.025em;margin:0 0 5px;color:inherit}
+.editorial-trainers .trainer-info p{font-size:.79rem;line-height:1.45;color:#7d7e78;margin:0 0 9px}
+.editorial-trainers .trainer-rating{display:flex;align-items:center;gap:8px;margin-top:10px;font-family:monospace;font-size:.72rem;line-height:1.3;color:#85867f;letter-spacing:.02em}
+.editorial-trainers .trainer-stars{color:#9aaa42;letter-spacing:.08em;font-family:Arial,sans-serif;font-size:.82rem;white-space:nowrap}
+.editorial-trainers .trainer-score{color:#777870;font-variant-numeric:tabular-nums}
+.editorial-trainers .trainer-card:hover .trainer-rating,.editorial-trainers .trainer-card:hover .trainer-score{color:#d2d4ce}
+.editorial-trainers .trainer-card:hover .trainer-stars{color:#c6ff00}
+.editorial-trainers .trainer-specialty{display:block;font-family:monospace;font-size:.65rem;line-height:1.5;letter-spacing:.04em;color:#878981}
+.editorial-trainers .trainer-card:hover .trainer-info p,.editorial-trainers .trainer-card:hover .trainer-specialty{color:#bfc2bb}
+#trainers .placeholder-note{font-size:.68rem;line-height:1.5;margin-top:13px;color:#777870}
+@media(max-width:960px){.trainers-grid.editorial-trainers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){#trainers.trainers-section{padding-top:68px;padding-bottom:68px}#trainers .section-head{display:block}#trainers .section-head>p{margin-top:14px}.editorial-trainers .trainer-card{padding:12px 12px 13px}.editorial-trainers .trainer-info{padding-top:11px}.editorial-trainers .trainer-info h3{font-size:.92rem}.editorial-trainers .trainer-info p{font-size:.75rem}.editorial-trainers .trainer-specialty{font-size:.58rem}}
+@media(max-width:430px){.trainers-grid.editorial-trainers{grid-template-columns:repeat(2,minmax(0,1fr))}.editorial-trainers .trainer-card{padding:9px}.editorial-trainers .trainer-info h3{font-size:.87rem}}
+
 </style>
 </head>
 <body>
@@ -340,13 +366,17 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
   <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" alt="Тренировка в зале" loading="lazy"><div class="service-body"><h3>Фитнес для начинающих</h3><p>Поможем освоиться в зале и начать без спешки.</p></div></article>
   <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=85" alt="Современный тренажёрный зал" loading="lazy"><div class="service-body"><h3>План тренировок</h3><p>Подберём формат и график под твои цели.</p></div></article>
  </div></div></section>
-<section class="section" id="trainers"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">ТРЕНЕРЫ</span><h2>ПОДДЕРЖКА<br>НА ТВОЁМ ПУТИ</h2></div><p>Персональный подход к твоим целям и уровню подготовки.</p></div>
+<section class="section trainers-section" id="trainers"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">ТРЕНЕРЫ</span><h2>КОМАНДА PULSE</h2></div><p>Тренеры, которые помогут выстроить тренировку под твой ритм и цели.</p></div>
  <div class="trainers-grid editorial-trainers">
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=700&q=80" alt="Демонстрационный портрет тренера по силовым тренировкам" loading="lazy"><div class="trainer-info"><h3>Силовой тренинг</h3><p>Индивидуальные занятия</p></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=700&q=80" alt="Демонстрационное фото тренировки на выносливость" loading="lazy"><div class="trainer-info"><h3>Общая подготовка</h3><p>Выносливость и техника</p></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&w=700&q=80" alt="Демонстрационный портрет тренера" loading="lazy"><div class="trainer-info"><h3>Функциональный тренинг</h3><p>Сила и мобильность</p></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=80" alt="Демонстрационное фото тренировки" loading="lazy"><div class="trainer-info"><h3>Кардиотренировки</h3><p>Нагрузка в твоём ритме</p></div></article>
- </div><p class="placeholder-note">Фотографии демонстрационные. Имена и реальные профили тренеров добавим после подтверждения данных клуба.</p></div></section>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&h=700&q=85" alt="Портрет Алексей, тренер" loading="lazy"><div class="trainer-info"><h3>Алексей</h3><p>Тренер</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&h=700&q=85" alt="Портрет Алия, тренер по пилатесу" loading="lazy"><div class="trainer-info"><h3>Алия</h3><p>Тренер по пилатесу</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&h=700&q=85" alt="Портрет Денис, тренер" loading="lazy"><div class="trainer-info"><h3>Денис</h3><p>Тренер</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=700&h=700&q=85" alt="Портрет Мария, тренер по йоге" loading="lazy"><div class="trainer-info"><h3>Мария</h3><p>Тренер по йоге</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&h=700&q=85" alt="Портрет Ильяс, тренер" loading="lazy"><div class="trainer-info"><h3>Ильяс</h3><p>Тренер</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&h=700&q=85" alt="Портрет Анна, тренер" loading="lazy"><div class="trainer-info"><h3>Анна</h3><p>Тренер</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=700&h=700&q=85" alt="Портрет Роман, тренер" loading="lazy"><div class="trainer-info"><h3>Роман</h3><p>Тренер</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&h=700&q=85" alt="Портрет Дарья, тренер по пилатесу" loading="lazy"><div class="trainer-info"><h3>Дарья</h3><p>Тренер по пилатесу</p><div class="trainer-rating" aria-label="Оценка 5 из 5"><span class="trainer-stars" aria-hidden="true">★★★★★</span><span class="trainer-score">5,0</span></div></div></article>
+ </div></div></section>
 <section class="pulse-motion"><div class="container motion-grid"><div class="motion-copy"><span class="eyebrow">АТМОСФЕРА PULSE</span><h2>ДВИЖЕНИЕ<br>В ТВОЁМ<br><span>РИТМЕ.</span></h2><p>Место, где можно сосредоточиться на себе и своей цели.</p><a class="btn btn-lime" href="#booking">Записаться ↗</a><div class="motion-tags"><span>СИЛА</span><span>БАЛАНС</span><span>ЭНЕРГИЯ</span></div></div><div class="motion-visual"><img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1100&q=85" alt="Атмосфера интенсивной тренировки" loading="lazy"><div class="motion-stamp">FIND<br>YOUR<br>PULSE <b>✳</b></div></div></div></section>
 <section class="section pricing" id="pricing"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">АБОНЕМЕНТЫ</span><h2>ВАРИАНТЫ<br>ПОСЕЩЕНИЯ</h2></div><p>Стоимость и условия можно уточнить у администратора.</p></div>
  <div class="pricing-grid">
