@@ -227,6 +227,65 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
 /* Small desktop offset: restore the hero text block slightly to the right. Keep mobile alignment unchanged. */
 @media (min-width: 761px){.hero-content{margin-left:26px}}
 @media (max-width: 760px){.hero-content{margin-left:0}}
+/* Ticker: larger type and truly continuous, unpaused motion */
+.ticker{font-size:.8rem;letter-spacing:.13em;}
+.ticker-track{display:flex;width:max-content;flex-wrap:nowrap;gap:0;animation:pulseTicker 36s linear infinite;animation-play-state:running!important;}
+.ticker-inner{display:flex;flex:0 0 auto;align-items:center;justify-content:flex-start;gap:38px;padding:17px 34px;width:max-content;}
+.ticker-inner span{display:inline-flex;align-items:center;flex:0 0 auto;line-height:1.3;}
+.ticker span:after{content:"✳";color:#c6d86a;padding-left:30px;}
+.ticker:hover .ticker-track{animation-play-state:running!important;}
+@keyframes pulseTicker{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+/* Softly fade at viewport edges so moving words do not look abruptly cut */
+.ticker{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 28px,#000 calc(100% - 28px),transparent 100%);}
+@media(max-width:760px){.ticker{font-size:.73rem;letter-spacing:.1em}.ticker-inner{gap:24px;padding:15px 25px}.ticker span:after{padding-left:22px}.ticker-track{animation-duration:28s}}
+
+/* Final ticker refinement: larger, comfortably spaced and continuously moving */
+.ticker{font-size:clamp(.88rem,1.05vw,1rem);line-height:1.5;letter-spacing:.12em;min-height:58px;display:flex;align-items:center;overflow:hidden;-webkit-mask-image:none!important;mask-image:none!important}
+.ticker-track{align-items:center;animation:pulseTicker 42s linear infinite!important;animation-play-state:running!important}
+.ticker-inner{align-items:center;gap:42px;padding:18px 34px;min-height:58px}
+.ticker-inner span{line-height:1.5;white-space:nowrap;padding-block:2px}
+.ticker span:after{padding-left:34px}
+.ticker:hover .ticker-track{animation-play-state:running!important}
+@media(max-width:760px){.ticker{font-size:.82rem;min-height:54px;letter-spacing:.09em}.ticker-inner{gap:28px;padding:16px 22px;min-height:54px}.ticker span:after{padding-left:24px}.ticker-track{animation-duration:34s!important}}
+
+
+/* Consolidated refinements requested for the PULSE site */
+/* Service cards: clean editorial layout, no numbered micro-labels or underlines. */
+.services .section-head{align-items:flex-end;margin-bottom:34px}
+.services .section-head>p{display:none!important}
+.service-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 18px}
+.service-card{background:transparent;border:0;border-radius:0;box-shadow:none!important;transform:none!important}
+.service-card:hover{transform:none!important;box-shadow:none!important}
+.service-card img{height:clamp(180px,18vw,230px);border-radius:0;object-fit:cover;background:#e8e6df}
+.service-card:hover img{transform:scale(1.015)}
+.service-body{padding:14px 0 24px}
+.service-number{display:none!important}
+.service-body h3{font-size:1.18rem;font-weight:500;letter-spacing:-.035em;margin:0 0 7px;line-height:1.25}
+.service-body p{color:var(--muted);font-size:.83rem;line-height:1.55;max-width:300px;margin:0 0 13px}
+.text-link{display:inline-flex;align-items:center;gap:8px;border:0!important;padding:0!important;font-size:.8rem;font-weight:500;letter-spacing:.005em}
+.text-link:hover{color:#6f7f20}
+/* Trainer profiles: restrained grid inspired by the reference site, no oversized CTAs. */
+.trainers-grid.editorial-trainers{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.editorial-trainers .trainer-card{background:transparent;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;overflow:hidden;min-width:0}
+.editorial-trainers .trainer-card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;filter:saturate(.72);border-radius:0;transition:filter .25s,transform .45s;display:block}
+.editorial-trainers .trainer-card:hover img{filter:saturate(.95);transform:scale(1.015)}
+.editorial-trainers .trainer-info{padding:14px 15px 17px;background:transparent}
+.editorial-trainers .trainer-info h3{font-size:.98rem;font-weight:500;line-height:1.35;letter-spacing:-.025em;margin:0 0 5px}
+.editorial-trainers .trainer-info p{font-size:.78rem;line-height:1.45;color:var(--muted);margin:0}
+#trainers .section-head{margin-bottom:30px}
+#trainers .section-head>p{max-width:290px;font-size:.84rem;line-height:1.55}
+#trainers .placeholder-note{font-size:.72rem;line-height:1.5;margin-top:12px}
+/* Keep the moving text strip seamless and never clipped vertically. */
+.ticker{min-height:60px;height:auto;overflow:hidden;display:flex;align-items:center;white-space:nowrap;line-height:1.45}
+.ticker-track{display:flex;flex-wrap:nowrap;align-items:center;width:max-content;gap:0;will-change:transform;animation:pulseTicker 42s linear infinite!important;animation-play-state:running!important}
+.ticker-inner{display:flex;flex:0 0 auto;align-items:center;justify-content:flex-start;gap:38px;width:max-content;min-height:60px;padding:17px 30px}
+.ticker-inner span{display:inline-flex;flex:0 0 auto;align-items:center;line-height:1.45;white-space:nowrap;padding-block:2px}
+.ticker span:after{content:"✳";padding-left:32px;color:#c6d86a}
+.ticker:hover .ticker-track{animation-play-state:running!important}
+@media(max-width:960px){.trainers-grid.editorial-trainers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}.service-card img{height:clamp(140px,42vw,210px)}.service-body{padding:12px 0 20px}.service-body h3{font-size:1rem}.service-body p{font-size:.79rem}.trainers-grid.editorial-trainers{grid-template-columns:repeat(2,minmax(0,1fr))}.editorial-trainers .trainer-info{padding:12px}.editorial-trainers .trainer-info h3{font-size:.9rem}.ticker{font-size:.79rem;min-height:54px}.ticker-inner{min-height:54px;padding:14px 22px;gap:26px}.ticker span:after{padding-left:22px}.ticker-track{animation-duration:34s!important}}
+@media(max-width:430px){.service-grid{grid-template-columns:1fr}.service-card img{height:220px}.trainers-grid.editorial-trainers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 </style>
 </head>
 <body>
@@ -262,25 +321,23 @@ body{font-family:"Manrope",Arial,sans-serif;font-weight:400;letter-spacing:-.012
  <div class="about-copy"><span class="eyebrow">О КЛУБЕ</span><h2>ТВОЁ ПРОСТРАНСТВО ДЛЯ ТРЕНИРОВОК</h2><p>Современное оборудование, продуманное пространство и комфортная атмосфера.</p><p>Приходи за движением, энергией и временем для себя.</p>
  <div class="check-list"><div><span>✓</span>Современный зал</div><div><span>✓</span>Персональный подход</div><div><span>✓</span>Разные форматы</div><div><span>✓</span>Твой темп</div></div><a class="btn btn-lime" href="#services">Направления ↗</a></div>
 </div></section>
-<section class="stats-strip" aria-label="О клубе PULSE"><div class="container stats-grid"><div><strong>01</strong><span>ТВОЯ ЦЕЛЬ</span></div><div><strong>02</strong><span>ТВОЙ ТЕМП</span></div><div><strong>03</strong><span>ТВОЙ ПРОГРЕСС</span></div><div><strong>PULSE</strong><span>ВРЕМЯ ДЛЯ СЕБЯ</span></div></div></section>
-<section class="section services" id="services"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">НАПРАВЛЕНИЯ</span><h2>ВЫБЕРИ СВОЙ<br>ФОРМАТ</h2></div><p>Занятия для разных целей и уровней подготовки.</p></div>
+
+<section class="section services" id="services"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">НАПРАВЛЕНИЯ</span><h2>ВЫБЕРИ СВОЙ<br>ФОРМАТ</h2></div></div>
  <div class="service-grid">
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80" alt="Силовая тренировка" loading="lazy"><div class="service-body"><span class="service-number">01 / СИЛА</span><h3>Тренажёрный зал</h3><p>Силовые тренировки на современном оборудовании.</p><a class="text-link service-book" href="#booking" data-service="Тренажёрный зал">Узнать подробнее ↗</a></div></article>
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80" alt="Кардиотренировка" loading="lazy"><div class="service-body"><span class="service-number">02 / ВЫНОСЛИВОСТЬ</span><h3>Кардиотренировки</h3><p>Кардио для выносливости и хорошего самочувствия.</p><a class="text-link service-book" href="#booking" data-service="Кардиотренировки">Узнать подробнее ↗</a></div></article>
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Персональная тренировка" loading="lazy"><div class="service-body"><span class="service-number">03 / ИНДИВИДУАЛЬНО</span><h3>Персональные тренировки</h3><p>Занятия с учётом твоих целей и уровня подготовки.</p><a class="text-link service-book" href="#booking" data-service="Персональные тренировки">Узнать подробнее ↗</a></div></article>
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80" alt="Групповое занятие" loading="lazy"><div class="service-body"><span class="service-number">04 / КОМАНДА</span><h3>Групповые занятия</h3><p>Общий ритм, поддержка и движение вместе.</p><a class="text-link service-book" href="#booking" data-service="Групповые занятия">Узнать подробнее ↗</a></div></article>
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" alt="Тренировка в зале" loading="lazy"><div class="service-body"><span class="service-number">05 / ПЕРВЫЙ ШАГ</span><h3>Фитнес для начинающих</h3><p>Спокойное знакомство с залом и базовыми упражнениями.</p><a class="text-link service-book" href="#booking" data-service="Фитнес для начинающих">Узнать подробнее ↗</a></div></article>
-  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1517963879466-e1b555a2a7b9?auto=format&fit=crop&w=800&q=80" alt="Активная тренировка" loading="lazy"><div class="service-body"><span class="service-number">06 / ТВОЙ РИТМ</span><h3>План тренировок</h3><p>Поможем подобрать удобный формат занятий.</p><a class="text-link service-book" href="#booking" data-service="Подбор плана тренировок">Подобрать формат ↗</a></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80" alt="Силовая тренировка" loading="lazy"><div class="service-body"><h3>Тренажёрный зал</h3><p>Свободные веса и тренажёры для силовой работы.</p><a class="text-link service-book" href="#booking" data-service="Тренажёрный зал">Подробнее ↗</a></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80" alt="Кардиотренировка" loading="lazy"><div class="service-body"><h3>Кардиотренировки</h3><p>Кардионагрузка в комфортном для тебя темпе.</p><a class="text-link service-book" href="#booking" data-service="Кардиотренировки">Подробнее ↗</a></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Персональная тренировка" loading="lazy"><div class="service-body"><h3>Персональные тренировки</h3><p>Индивидуальный план вместе с тренером.</p><a class="text-link service-book" href="#booking" data-service="Персональные тренировки">Подробнее ↗</a></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80" alt="Групповое занятие" loading="lazy"><div class="service-body"><h3>Групповые занятия</h3><p>Занятия в группе — движение и поддержка.</p><a class="text-link service-book" href="#booking" data-service="Групповые занятия">Подробнее ↗</a></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" alt="Тренировка в зале" loading="lazy"><div class="service-body"><h3>Фитнес для начинающих</h3><p>Поможем освоиться в зале и начать без спешки.</p><a class="text-link service-book" href="#booking" data-service="Фитнес для начинающих">Подробнее ↗</a></div></article>
+  <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=85" alt="Современный тренажёрный зал" loading="lazy"><div class="service-body"><h3>План тренировок</h3><p>Подберём формат и график под твои цели.</p><a class="text-link service-book" href="#booking" data-service="Подбор плана тренировок">Подобрать план ↗</a></div></article>
  </div></div></section>
-<section class="feature-band"><div class="container feature-grid">
- <div class="feature-item"><strong>Твой темп</strong><span>Для начинающих и опытных</span></div><div class="feature-item"><strong>Твоя цель</strong><span>Подбор подходящего формата</span></div><div class="feature-item"><strong>Твоя команда</strong><span>Поддержка на пути к результату</span></div><div class="feature-item"><strong>Твоя энергия</strong><span>Комфортная атмосфера занятий</span></div>
-</div></section>
-<section class="section" id="trainers"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">ТРЕНЕРЫ</span><h2>ПОДДЕРЖКА<br>НА ТВОЁМ ПУТИ</h2></div><p>Познакомься с тренерами клуба и выбери подходящий формат занятий.</p></div>
- <div class="trainers-grid">
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=700&q=80" alt="Тренер по силовым тренировкам — пример фото" loading="lazy"><div class="trainer-info"><h3>Тренер по силовым тренировкам</h3><p>Имя и квалификация будут добавлены после подтверждения данных.</p><a class="btn btn-lime trainer-book" href="#booking" data-trainer="Тренер по силовым тренировкам">Записаться ↗</a></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=80" alt="Тренер по общей физической подготовке — пример фото" loading="lazy"><div class="trainer-info"><h3>Тренер по общей подготовке</h3><p>Добавим имя, специализацию и информацию о тренере.</p><a class="btn btn-lime trainer-book" href="#booking" data-trainer="Тренер по общей подготовке">Записаться ↗</a></div></article>
-  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&w=700&q=80" alt="Тренер по функциональным тренировкам — пример фото" loading="lazy"><div class="trainer-info"><h3>Тренер по функциональным тренировкам</h3><p>Профиль и квалификация будут заполнены реальными данными.</p><a class="btn btn-lime trainer-book" href="#booking" data-trainer="Тренер по функциональным тренировкам">Записаться ↗</a></div></article>
- </div><p class="placeholder-note">Фотографии и описания тренеров — демонстрационные материалы. Перед публикацией замените их на реальные данные клуба.</p></div></section>
+<section class="section" id="trainers"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">ТРЕНЕРЫ</span><h2>ПОДДЕРЖКА<br>НА ТВОЁМ ПУТИ</h2></div><p>Персональный подход к твоим целям и уровню подготовки.</p></div>
+ <div class="trainers-grid editorial-trainers">
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=700&q=80" alt="Демонстрационный портрет тренера по силовым тренировкам" loading="lazy"><div class="trainer-info"><h3>Силовой тренинг</h3><p>Индивидуальные занятия</p></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=700&q=80" alt="Демонстрационное фото тренировки на выносливость" loading="lazy"><div class="trainer-info"><h3>Общая подготовка</h3><p>Выносливость и техника</p></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&w=700&q=80" alt="Демонстрационный портрет тренера" loading="lazy"><div class="trainer-info"><h3>Функциональный тренинг</h3><p>Сила и мобильность</p></div></article>
+  <article class="trainer-card reveal"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=80" alt="Демонстрационное фото тренировки" loading="lazy"><div class="trainer-info"><h3>Кардиотренировки</h3><p>Нагрузка в твоём ритме</p></div></article>
+ </div><p class="placeholder-note">Фотографии демонстрационные. Имена и реальные профили тренеров добавим после подтверждения данных клуба.</p></div></section>
 <section class="pulse-motion"><div class="container motion-grid"><div class="motion-copy"><span class="eyebrow">АТМОСФЕРА PULSE</span><h2>ДВИЖЕНИЕ<br>В ТВОЁМ<br><span>РИТМЕ.</span></h2><p>Место, где можно сосредоточиться на себе и своей цели.</p><a class="btn btn-lime" href="#booking">Записаться ↗</a><div class="motion-tags"><span>СИЛА</span><span>БАЛАНС</span><span>ЭНЕРГИЯ</span></div></div><div class="motion-visual"><img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1100&q=85" alt="Атмосфера интенсивной тренировки" loading="lazy"><div class="motion-stamp">FIND<br>YOUR<br>PULSE <b>✳</b></div></div></div></section>
 <section class="section pricing" id="pricing"><div class="container"><div class="section-head reveal"><div><span class="eyebrow">АБОНЕМЕНТЫ</span><h2>ВАРИАНТЫ<br>ПОСЕЩЕНИЯ</h2></div><p>Стоимость и условия можно уточнить у администратора.</p></div>
  <div class="pricing-grid">
