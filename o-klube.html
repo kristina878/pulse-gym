@@ -36,7 +36,7 @@
  <div class="container nav">
   <a class="brand" href="index.html" aria-label="PULSE — на главную"><span class="brand-mark">P</span><span>PULSE<small>FITNESS CLUB</small></span></a>
   <nav class="nav-links" id="navLinks" aria-label="Основная навигация">
-   <a href="index.html">Главная</a><a href="o-klube.html" aria-current="page">Услуги</a><a href="index.html#trainers">Тренеры</a><a href="abonementy.html">Абонементы</a><a href="index.html#contacts">Контакты</a>
+   <a href="index.html">Главная</a><a href="o-klube.html" aria-current="page">Услуги</a><a href="index.html#trainers">Тренеры</a><a href="abonementy.html">Абонементы</a><a href="kontakty.html">Контакты</a>
   </nav>
   <div class="nav-actions"><a class="btn btn-light" href="index.html#booking">Записаться <span aria-hidden="true">↗</span></a><button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false">☰</button></div>
  </div>
@@ -90,16 +90,16 @@
  <div class="container">
   <div class="visit-grid">
    <article class="visit-card"><div><span class="eyebrow">ПЕРВЫЙ ВИЗИТ</span><h3>НАЧНИ С КОМФОРТНОГО ТЕМПА</h3><p>Не обязательно сразу знать все упражнения. Уточни условия первого посещения, выбери направление и начни с подходящей нагрузки.</p></div><a class="btn btn-lime" href="index.html#booking">Оставить заявку ↗</a></article>
-   <article class="visit-card dark"><div><span class="eyebrow">ПОДГОТОВЬСЯ К ЗАНЯТИЮ</span><h3>ВСЁ ПРОСТО</h3><p>Возьми спортивную одежду, чистую обувь для зала и воду. По вопросам инвентаря и правил посещения можно обратиться к администратору.</p></div><a class="btn btn-outline-light" href="index.html#contacts">Связаться с клубом ↗</a></article>
+   <article class="visit-card dark"><div><span class="eyebrow">ПОДГОТОВЬСЯ К ЗАНЯТИЮ</span><h3>ВСЁ ПРОСТО</h3><p>Возьми спортивную одежду, чистую обувь для зала и воду. По вопросам инвентаря и правил посещения можно обратиться к администратору.</p></div><a class="btn btn-outline-light" href="kontakty.html">Связаться с клубом ↗</a></article>
   </div>
-  <div class="location-strip"><div class="location-text"><span class="location-symbol" aria-hidden="true">⌖</span><div><strong>PULSE · Юнусабад, 19-й квартал</strong><span>Ташкент · часы работы: 07:00–23:00</span></div></div><a class="btn btn-lime" href="index.html#contacts">Посмотреть локацию ↗</a></div>
+  <div class="location-strip"><div class="location-text"><span class="location-symbol" aria-hidden="true">⌖</span><div><strong>PULSE · Юнусабад, 19-й квартал</strong><span>Ташкент · часы работы: 07:00–23:00</span></div></div><a class="btn btn-lime" href="kontakty.html">Посмотреть локацию ↗</a></div>
  </div>
 </section>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-grid">
  <div class="footer-about"><a class="brand" href="index.html"><span class="brand-mark">P</span><span>PULSE<small>FITNESS CLUB</small></span></a><p>Фитнес-клуб PULSE. Пространство для движения и времени для себя.</p></div>
  <div class="footer-col"><h4>Навигация</h4><a href="index.html">Главная</a><a href="o-klube.html">Услуги</a><a href="index.html#trainers">Тренеры</a><a href="abonementy.html">Абонементы</a></div>
- <div class="footer-col"><h4>Контакты</h4><a href="index.html#contacts">Юнусабад, 19-й квартал</a><a href="index.html#contacts">Часы работы: 07:00–23:00</a><a href="index.html#booking">Оставить заявку ↗</a></div>
+ <div class="footer-col"><h4>Контакты</h4><a href="kontakty.html">Юнусабад, 19-й квартал</a><a href="kontakty.html">Часы работы: 07:00–23:00</a><a href="index.html#booking">Оставить заявку ↗</a></div>
  </div><div class="footer-bottom"><span>© <span id="year"></span> PULSE Fitness Club</span><span>Твой ритм. Твои правила.</span></div></div></footer>
 <script>
 const menuToggle=document.getElementById('menuToggle');const navLinks=document.getElementById('navLinks');if(menuToggle&&navLinks){menuToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.textContent=open?'×':'☰';document.body.classList.toggle('menu-open',open)});navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰';document.body.classList.remove('menu-open')}))}document.getElementById('year').textContent=new Date().getFullYear();
