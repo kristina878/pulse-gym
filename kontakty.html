@@ -11,7 +11,7 @@
 <title>Контакты — PULSE Fitness Club</title>
 
 <style>
-:root{--ink:#25292d;--ink2:#171a1d;--lime:#c6d86a;--lime-bright:#c6ff00;--paper:#f5f4f0;--white:#fff;--muted:#777b78;--line:#deded7;--green:#14765a;--radius:18px;--shadow:0 18px 48px rgba(22,26,21,.10)}
+
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;font-family:Manrope,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}body.menu-open{overflow:hidden}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}.container{width:min(1280px,calc(100% - 64px));margin-inline:auto}.site-header{position:sticky;top:0;z-index:100;background:rgba(37,41,45,.98);color:#fff;border-bottom:1px solid rgba(255,255,255,.12);box-shadow:0 5px 20px rgba(0,0,0,.08);backdrop-filter:blur(14px)}.nav{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:25px}.brand{display:flex;align-items:center;gap:11px;font-size:1.7rem;line-height:1;font-weight:800;letter-spacing:-.06em;white-space:nowrap}.brand-mark{width:39px;height:39px;display:grid;place-items:center;background:var(--lime);color:#20221e;border-radius:2px;font-size:1.1rem;font-weight:900;font-style:italic}.brand small{display:block;margin-top:6px;color:rgba(255,255,255,.62);font-size:.5rem;font-weight:700;letter-spacing:.23em}.nav-links{display:flex;align-items:center;gap:clamp(14px,1.6vw,27px);font-size:.87rem;font-weight:600;white-space:nowrap}.nav-links a{color:rgba(255,255,255,.84);transition:color .2s}.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--lime-bright)}.nav-actions{display:flex;align-items:center;gap:10px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:13px 23px;border-radius:999px;font-size:.85rem;font-weight:700;transition:transform .2s,background .2s,color .2s;border:0;cursor:pointer}.btn:hover{transform:translateY(-2px)}.btn-lime{background:var(--lime);color:#1e211e}.btn-lime:hover{background:#d5e78b}.btn-light{background:#f6f5f1;color:#242521}.menu-toggle{display:none;width:42px;height:42px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:2px;font-size:1.25rem}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--muted)}.eyebrow:before{content:"";width:24px;height:2px;background:var(--lime);display:inline-block}.intro{background:var(--paper);padding:78px 0 60px;position:relative;overflow:hidden}.intro:after{content:"";position:absolute;width:490px;height:490px;border:1px solid rgba(20,118,90,.16);border-radius:50%;right:-230px;top:-320px;pointer-events:none}.intro-grid{display:grid;grid-template-columns:1.15fr .68fr;gap:80px;align-items:end}.intro h1{font-size:clamp(3.2rem,6.2vw,6.8rem);line-height:.91;letter-spacing:-.075em;font-weight:500;text-transform:uppercase;max-width:820px;margin:22px 0 25px}.intro h1 span{color:var(--green);display:block}.intro-copy{max-width:460px;color:#626762;font-size:1rem}.intro-copy p{margin:0 0 14px}.intro-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.pill{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border:1px solid var(--line);border-radius:999px;font-size:.78rem;font-weight:700;background:rgba(255,255,255,.5)}.pill b{color:var(--green)}
 .contacts-section{padding:70px 0 85px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:35px;margin-bottom:34px}.section-head h2{font-size:clamp(2rem,4vw,3.4rem);line-height:.97;letter-spacing:-.065em;text-transform:uppercase;font-weight:500;margin:14px 0 0}.section-head p{max-width:360px;color:var(--muted);font-size:.9rem;margin:0}.contact-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:24px;align-items:stretch}.contact-panel{background:var(--paper);border:1px solid var(--line);padding:30px;border-radius:3px}.contact-list{display:grid;gap:0}.contact-item{display:grid;grid-template-columns:48px 1fr;gap:15px;padding:21px 0;border-bottom:1px solid var(--line)}.contact-item:first-child{padding-top:0}.contact-item:last-child{border-bottom:0;padding-bottom:0}.contact-icon{width:42px;height:42px;display:grid;place-items:center;background:var(--lime);color:var(--ink);font-size:1.1rem;font-weight:800;border-radius:2px}.contact-item strong{display:block;font-size:.9rem;margin:0 0 4px}.contact-item p{margin:0;color:#727670;font-size:.88rem}.contact-item .detail{font-size:1rem;color:var(--ink);font-weight:650}.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.social-link{display:inline-flex;align-items:center;gap:9px;padding:9px 12px;border:1px solid #d7d9d0;background:#fff;border-radius:999px;font-size:.8rem;font-weight:700;transition:background .2s,border-color .2s}.social-link:hover{background:#f1f5da;border-color:var(--lime)}.social-link svg{width:19px;height:19px;color:var(--green)}
@@ -23,11 +23,7 @@
 
 
 /* PULSE — shared design system and responsive refinements */
-:root{
-  --ink:#20211f;--ink2:#171816;--lime:#c6ff00;--paper:#f5f4f0;--white:#fff;
-  --muted:#777872;--line:#deded8;--green:#176e55;--radius:4px;
-  --shadow:0 16px 44px rgba(20,22,18,.10);
-}
+
 html{scroll-behavior:smooth;scroll-padding-top:96px}
 body{font-family:"Manrope",Arial,Helvetica,sans-serif;color:#262724;background:#fff}
 button,input,select,textarea{font:inherit}
@@ -84,6 +80,70 @@ input:focus,select:focus,textarea:focus{outline-color:var(--green)}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
 
+/* PULSE final polish: shared header, controls, cards, footer and image behavior */
+:root{
+  --ink:#20211f;
+  --ink2:#171816;
+  --lime:#c6ff00;
+  --paper:#f5f4f0;
+  --white:#fff;
+  --muted:#777872;
+  --line:#deded8;
+  --green:#176e55;
+  --radius:4px;
+  --shadow:0 16px 44px rgba(20,22,18,.10);
+}
+.site-header .nav{min-height:78px}
+.site-header .nav-actions{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.site-header .nav-actions .btn,
+.site-header .nav-actions .nav-action{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:44px;padding:0 22px;border:0;border-radius:3px;
+  background:#fff;color:var(--ink);font:700 .82rem/1.2 "Manrope",Arial,sans-serif;
+  white-space:nowrap;text-decoration:none;transition:background .2s,color .2s,transform .2s;
+}
+.site-header .nav-actions .btn:hover,
+.site-header .nav-actions .nav-action:hover{background:var(--lime);color:var(--ink);transform:translateY(-1px)}
+.site-header .brand-mark{border-radius:3px}
+
+
+.btn,.btn-lime,.btn-light,.btn-outline,.btn-outline-light,.btn-outline-dark,.nav-action{
+  border-radius:3px;
+}
+.trainer-card,.service-card,.equipment-card,.price-card,.membership-card,
+.contact-panel,.map-card,.booking-form,.modal-panel,.trainer-dialog,.trainer-modal-booking{
+  border-radius:4px;
+}
+.trainer-photo,.trainer-card img,.service-card img,.hero-photo,.about-image,
+.gallery-item img,.mosaic-item img{object-fit:cover}
+.site-footer,.footer{
+  background:#191c1a!important;color:#fff!important;
+  padding-top:34px;padding-bottom:24px;
+}
+.site-footer .container,.footer .container{
+  width:min(1160px,calc(100% - 40px));margin-inline:auto;
+}
+
+
+.site-footer .brand,.footer .brand{color:#fff}
+.site-footer .brand small,.footer .brand small{color:#b9c0c4}
+.site-footer p,.footer p{color:#aeb5b6}
+.footer-row,.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:20px;color:#b9c0c4;font-size:.78rem;
+}
+.footer-links{display:flex;flex-wrap:wrap;gap:18px}
+.footer-grid{display:grid;grid-template-columns:1.4fr .7fr .8fr;gap:35px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px}
+@media(max-width:760px){
+  .site-header .nav{min-height:72px!important;gap:12px}
+  .site-header .brand{font-size:1.4rem!important;gap:9px}
+  .site-header .brand-mark{width:35px;height:35px}
+  .site-header .nav-actions .btn,.site-header .nav-actions .nav-action{display:none!important}
+  .site-header .menu-toggle{display:block!important;width:42px;height:42px}
+  .footer-row,.footer-inner,.footer-bottom{align-items:flex-start;flex-direction:column}
+  .footer-grid{grid-template-columns:1fr;gap:22px}
+}
 </style>
 </head>
 <body class="page-contacts">
@@ -210,7 +270,7 @@ form.addEventListener('submit',async e=>{e.preventDefault();if(!form.reportValid
   const navActions = document.querySelector('.nav-actions');
   const menuButton = document.querySelector('.menu-toggle');
   if(navActions){
-    const bookingButton=navActions.querySelector('.btn');
+    const bookingButton=navActions.querySelector('.btn,.nav-action');
     if(bookingButton) navActions.insertBefore(switcher,bookingButton);
     else if(menuButton) navActions.insertBefore(switcher,menuButton);
     else navActions.appendChild(switcher);
