@@ -627,6 +627,105 @@ input:focus,select:focus,textarea:focus{outline-color:var(--green)}
   .footer-row,.footer-inner,.footer-bottom{align-items:flex-start;flex-direction:column}
   .footer-grid{grid-template-columns:1fr;gap:22px}
 }
+
+
+/* PULSE CTA buttons — placement and proportions inspired by the supplied STAL screenshot */
+.site-header .nav-actions > a,
+.site-header .nav-actions > .btn,
+.site-header .nav-actions > .nav-action{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  box-sizing:border-box!important;
+  min-width:116px!important;
+  min-height:36px!important;
+  height:36px!important;
+  padding:0 18px!important;
+  border:1px solid #f4f3ef!important;
+  border-radius:999px!important;
+  background:#f4f3ef!important;
+  color:#20221f!important;
+  font-family:"Manrope",Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+  text-decoration:none!important;
+  box-shadow:none!important;
+  transform:none;
+}
+.site-header .nav-actions > a:hover,
+.site-header .nav-actions > .btn:hover,
+.site-header .nav-actions > .nav-action:hover{
+  background:#c6ff00!important;
+  border-color:#c6ff00!important;
+  color:#20221f!important;
+}
+.site-header .nav-actions{display:flex!important;align-items:center!important;gap:10px!important}
+@media(max-width:760px){
+  .site-header .nav-actions > a,
+  .site-header .nav-actions > .btn,
+  .site-header .nav-actions > .nav-action{display:none!important}
+}
+
+/* Main-screen CTA placement and size: aligned to the right like the STAL reference */
+@media(min-width:761px){
+  .hero-inner{position:relative!important}
+  .hero-buttons{
+    position:absolute!important;
+    right:0!important;
+    bottom:80px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:14px!important;
+    margin:0!important;
+    z-index:5!important;
+  }
+  .hero-buttons .btn{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    box-sizing:border-box!important;
+    min-width:142px!important;
+    min-height:40px!important;
+    height:40px!important;
+    padding:0 22px!important;
+    border-radius:999px!important;
+    font-family:"Manrope",Arial,sans-serif!important;
+    font-size:11px!important;
+    font-weight:600!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+  .hero-buttons .btn-outline,
+  .hero-buttons .btn-outline-light,
+  .hero-buttons .btn-outline-dark{
+    min-width:158px!important;
+    background:transparent!important;
+    border:1px solid rgba(255,255,255,.48)!important;
+    color:#fff!important;
+  }
+}
+@media(max-width:760px){
+  .hero-buttons{
+    position:static!important;
+    display:flex!important;
+    flex-wrap:wrap!important;
+    justify-content:flex-start!important;
+    gap:10px!important;
+    margin-top:22px!important;
+  }
+  .hero-buttons .btn{
+    min-width:136px!important;
+    min-height:40px!important;
+    height:40px!important;
+    padding:0 18px!important;
+    border-radius:999px!important;
+    font-size:11px!important;
+  }
+}
+
 </style>
 </head>
 <body class="page-home">
