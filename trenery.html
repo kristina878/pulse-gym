@@ -222,6 +222,47 @@ input:focus,select:focus,textarea:focus{outline-color:var(--green)}
   .site-footer .footer-about{grid-column:auto!important}
 }
 
+
+
+/* PULSE CTA buttons — placement and proportions inspired by the supplied STAL screenshot */
+.site-header .nav-actions > a,
+.site-header .nav-actions > .btn,
+.site-header .nav-actions > .nav-action{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  box-sizing:border-box!important;
+  min-width:116px!important;
+  min-height:36px!important;
+  height:36px!important;
+  padding:0 18px!important;
+  border:1px solid #f4f3ef!important;
+  border-radius:999px!important;
+  background:#f4f3ef!important;
+  color:#20221f!important;
+  font-family:"Manrope",Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+  text-decoration:none!important;
+  box-shadow:none!important;
+  transform:none;
+}
+.site-header .nav-actions > a:hover,
+.site-header .nav-actions > .btn:hover,
+.site-header .nav-actions > .nav-action:hover{
+  background:#c6ff00!important;
+  border-color:#c6ff00!important;
+  color:#20221f!important;
+}
+.site-header .nav-actions{display:flex!important;align-items:center!important;gap:10px!important}
+@media(max-width:760px){
+  .site-header .nav-actions > a,
+  .site-header .nav-actions > .btn,
+  .site-header .nav-actions > .nav-action{display:none!important}
+}
+
 </style>
 </head>
 <body class="page-trainers">
