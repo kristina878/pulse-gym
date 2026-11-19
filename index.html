@@ -833,6 +833,17 @@ input:focus,select:focus,textarea:focus{outline-color:var(--green);}
  .pricing-grid>.price-card.featured{transform:none;}
 }
 
+
+/* Interactive PULSE facts */
+.pulse-facts-grid .pulse-fact{position:relative;cursor:pointer;border-radius:12px;transition:background .25s,transform .25s,border-color .25s;padding-top:12px;padding-bottom:12px;padding-right:8px;}
+.pulse-facts-grid .pulse-fact:hover,.pulse-facts-grid .pulse-fact:focus-visible{background:rgba(255,255,255,.055);transform:translateY(-4px);outline:none;}
+.pulse-facts-grid .pulse-fact:focus-visible{box-shadow:0 0 0 2px #c6ff00;}
+.pulse-facts-grid .pulse-fact strong{transition:text-shadow .25s;}
+.pulse-facts-grid .pulse-fact:hover strong{ text-shadow:0 0 22px rgba(198,255,0,.42);}
+.pulse-facts-grid .fact-hint{display:inline-block;margin-top:10px;color:#c6ff00;font-size:.72rem;font-weight:800;letter-spacing:.04em;opacity:.78;transition:opacity .2s,transform .2s;}
+.pulse-facts-grid .pulse-fact:hover .fact-hint{opacity:1;transform:translateX(4px);}
+@media(max-width:760px){.pulse-facts-grid .pulse-fact{padding:8px 6px 10px 12px;}.pulse-facts-grid .pulse-fact:nth-child(odd){padding-left:0;}.pulse-facts-grid .fact-hint{font-size:.68rem;margin-top:7px;}}
+@media(prefers-reduced-motion:reduce){.pulse-facts-grid .pulse-fact,.pulse-facts-grid .pulse-fact strong,.pulse-facts-grid .fact-hint{transition:none!important;}}
 </style>
 </head>
 <body class="page-home">
@@ -875,10 +886,10 @@ input:focus,select:focus,textarea:focus{outline-color:var(--green);}
 
 <section class="pulse-facts" aria-label="Фитнес-клуб PULSE в цифрах">
  <div class="container pulse-facts-grid">
-  <article><strong>16</strong><b>часов в день</b><p>с 07:00 до 23:00 в будни</p></article>
-  <article><strong>8</strong><b>тренеров</b><p>мужские и женские, под разные цели</p></article>
-  <article><strong>4</strong><b>зоны в зале</b><p>кардио, силовые, свободные веса, функциональная</p></article>
-  <article><strong>0</strong><b>сум за пробное</b><p>первое занятие бесплатно и без обязательств</p></article>
+  <article class="pulse-fact pulse-fact-link" tabindex="0" role="link" data-target="#contacts" aria-label="Часы работы — контакты"><strong data-count="16">16</strong><b>часов в день</b><p>с 07:00 до 23:00 в будни</p><span class="fact-hint" aria-hidden="true">Подробнее ↗</span></article>
+  <article class="pulse-fact pulse-fact-link" tabindex="0" role="link" data-target="#trainers" aria-label="Перейти к тренерам"><strong data-count="8">8</strong><b>тренеров</b><p>мужские и женские, под разные цели</p><span class="fact-hint" aria-hidden="true">Наша команда ↗</span></article>
+  <article class="pulse-fact pulse-fact-link" tabindex="0" role="link" data-target="#services" aria-label="Посмотреть направления тренировок"><strong data-count="4">4</strong><b>зоны в зале</b><p>кардио, силовые, свободные веса, функциональная</p><span class="fact-hint" aria-hidden="true">Посмотреть ↗</span></article>
+  <article class="pulse-fact pulse-fact-link" tabindex="0" role="link" data-target="#booking" aria-label="Записаться на бесплатное пробное занятие"><strong data-count="0">0</strong><b>сум за пробное</b><p>первое занятие бесплатно и без обязательств</p><span class="fact-hint" aria-hidden="true">Записаться ↗</span></article>
  </div>
 </section>
 
@@ -1029,6 +1040,28 @@ input:focus,select:focus,textarea:focus{outline-color:var(--green);}
  }), {threshold:.12}) : null;
  $$('.reveal').forEach(el => revealObserver ? revealObserver.observe(el) : el.classList.add('visible'));
  $('#year').textContent = new Date().getFullYear();
+
+ // Animated, keyboard-accessible facts cards
+ const factCards = $$('.pulse-fact[data-target]');
+ const openFactTarget = card => { const target = $(card.dataset.target); if(target) target.scrollIntoView({behavior:'smooth',block:'start'}); };
+ factCards.forEach(card => {
+   card.addEventListener('click', () => openFactTarget(card));
+   card.addEventListener('keydown', event => { if(event.key === 'Enter' || event.key === ' '){ event.preventDefault(); openFactTarget(card); } });
+ });
+ const factNumbers = $$('.pulse-fact strong[data-count]');
+ const animateFactNumbers = () => factNumbers.forEach(el => {
+   if(el.dataset.counted === 'true') return;
+   const target = Number(el.dataset.count); el.dataset.counted = 'true';
+   const duration = 850; const start = performance.now();
+   const tick = now => { const progress = Math.min((now-start)/duration,1); const eased = 1-Math.pow(1-progress,3); el.textContent = String(Math.round(target*eased)); if(progress<1) requestAnimationFrame(tick); else el.textContent=String(target); };
+   requestAnimationFrame(tick);
+ });
+ const factsSection = $('.pulse-facts');
+ if(factsSection && 'IntersectionObserver' in window){
+   const factsObserver = new IntersectionObserver(entries => { if(entries.some(entry=>entry.isIntersecting)){animateFactNumbers();factsObserver.disconnect();} },{threshold:.25});
+   factsObserver.observe(factsSection);
+ } else { animateFactNumbers(); }
+
  const backTop = $('#backTop');
  window.addEventListener('scroll', () => backTop.classList.toggle('visible', window.scrollY > 500), {passive:true});
  backTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
