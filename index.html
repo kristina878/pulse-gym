@@ -824,6 +824,15 @@ input:focus,select:focus,textarea:focus{outline-color:var(--green);}
 @media(max-width:760px){.site-footer{padding:34px 0 18px!important;}.site-footer .container{width:calc(100% - 36px);}.site-footer .footer-grid{grid-template-columns:1fr 1fr!important;gap:26px 18px!important;padding-bottom:24px!important;}.site-footer .footer-about{grid-column:1/-1;}.site-footer .footer-bottom{align-items:flex-start!important;flex-direction:column!important;}}
 @media(max-width:420px){.site-footer .footer-grid{grid-template-columns:1fr!important;}.site-footer .footer-about{grid-column:auto;}}
 
+
+/* Mobile carousels: trainers and membership cards */
+@media (max-width: 700px){
+ .trainers-grid,.pricing-grid{display:grid;grid-auto-flow:column;grid-auto-columns:86%;grid-template-columns:none;overflow-x:auto;overflow-y:hidden;gap:14px;padding:2px 2px 14px;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+ .trainers-grid::-webkit-scrollbar,.pricing-grid::-webkit-scrollbar{display:none;}
+ .trainers-grid>.trainer-card,.pricing-grid>.price-card{width:100%;min-width:0;scroll-snap-align:start;}
+ .pricing-grid>.price-card.featured{transform:none;}
+}
+
 </style>
 </head>
 <body class="page-home">
