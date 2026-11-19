@@ -845,6 +845,47 @@ input:focus,select:focus,textarea:focus{outline-color:var(--green);}
 @media(max-width:760px){.pulse-facts-grid .pulse-fact{padding:8px 6px 10px 12px;}.pulse-facts-grid .pulse-fact:nth-child(odd){padding-left:0;}.pulse-facts-grid .fact-hint{font-size:.68rem;margin-top:7px;}}
 @media(prefers-reduced-motion:reduce){.pulse-facts-grid .pulse-fact,.pulse-facts-grid .pulse-fact strong,.pulse-facts-grid .fact-hint{transition:none!important;}}
 </style>
+
+<style id="pulse-mobile-menu-final-fix">
+/* Mobile navigation: fully opaque, full-height drawer; keep page content from showing through. */
+@media (max-width:760px){
+  .site-header{z-index:1200!important;}
+  .site-header .nav-links,
+  .site-header.page-header .nav-links{
+    position:fixed!important;
+    top:72px!important; left:0!important; right:0!important; bottom:0!important;
+    width:100%!important; height:calc(100vh - 72px)!important; height:calc(100dvh - 72px)!important;
+    max-height:none!important; min-height:0!important;
+    padding:18px 24px max(28px, env(safe-area-inset-bottom))!important;
+    margin:0!important; box-sizing:border-box!important;
+    display:none!important; flex-direction:column!important; align-items:stretch!important;
+    gap:0!important; overflow-y:auto!important; overscroll-behavior:contain;
+    background:#191c1a!important; background-color:#191c1a!important;
+    opacity:1!important; visibility:visible!important;
+    -webkit-backdrop-filter:none!important; backdrop-filter:none!important;
+    box-shadow:0 18px 36px rgba(0,0,0,.38)!important;
+    z-index:1201!important; isolation:isolate!important;
+  }
+  .site-header .nav-links.open,
+  .site-header.page-header .nav-links.open{display:flex!important;}
+  .site-header .nav-links a,
+  .site-header.page-header .nav-links a{
+    display:block!important; width:100%!important; min-height:52px!important;
+    padding:14px 2px!important; margin:0!important; box-sizing:border-box!important;
+    color:#f2f3ef!important; background:transparent!important;
+    border-bottom:1px solid rgba(255,255,255,.16)!important;
+    font-size:1rem!important; line-height:1.5!important; white-space:normal!important;
+    overflow:visible!important; text-overflow:clip!important; opacity:1!important;
+  }
+  .site-header .nav-links a[aria-current="page"]{color:#c6ff00!important;}
+  .site-footer .footer-col{min-width:0!important;}
+  .site-footer .footer-col a,.site-footer .footer-col h4,.site-footer .privacy-note{
+    display:block!important; max-width:100%!important; white-space:normal!important;
+    overflow-wrap:anywhere!important; word-break:normal!important; text-overflow:clip!important;
+  }
+}
+</style>
+
 </head>
 <body class="page-home">
 <header class="site-header">
