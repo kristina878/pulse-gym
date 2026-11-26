@@ -999,4 +999,36 @@ const menuToggle=document.getElementById('menuToggle');const navLinks=document.g
   update(LANGS.includes(saved)?saved:'ru');
 })();
 </script>
+<style id="pulse-mobile-memberships-grid-v2">
+@media(max-width:760px){
+  .membership-grid{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-auto-flow:row!important;grid-auto-columns:auto!important;
+    overflow:visible!important;overflow-x:visible!important;overflow-y:visible!important;
+    gap:14px 12px!important;padding:0 0 14px!important;
+    scroll-snap-type:none!important;
+  }
+  .membership-grid>.membership-card{width:auto!important;min-width:0!important;scroll-snap-align:none!important;}
+  .membership-card{padding:14px!important;border-radius:10px!important;}
+  .membership-card h2{font-size:1.08rem!important;line-height:1.15!important;margin:0 0 7px!important;}
+  .membership-card p{font-size:.76rem!important;line-height:1.42!important;margin:7px 0!important;}
+  .membership-price{font-size:clamp(1.05rem,4.5vw,1.45rem)!important;line-height:1.15!important;margin:10px 0 5px!important;}
+  .membership-price small{font-size:.62rem!important;}
+  .membership-term{font-size:.68rem!important;line-height:1.35!important;}
+  .membership-detail{gap:5px!important;padding:8px 0!important;}
+  .membership-detail span,.membership-detail strong{font-size:.67rem!important;line-height:1.35!important;}
+  .membership-card .btn,.membership-card a{font-size:.76rem!important;padding:11px 8px!important;white-space:normal!important;}
+  .membership-tag{font-size:.55rem!important;padding:4px 7px!important;right:8px!important;top:8px!important;}
+  .membership-card.featured{transform:none!important;}
+}
+@media(max-width:390px){
+  .membership-grid{gap:11px 9px!important;}
+  .membership-card{padding:11px!important;}
+  .membership-card h2{font-size:.98rem!important;}
+  .membership-card p{font-size:.71rem!important;}
+  .membership-detail span,.membership-detail strong{font-size:.61rem!important;}
+}
+</style>
+
 </body></html>
