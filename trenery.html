@@ -556,4 +556,58 @@ const nav=document.getElementById('navLinks'),toggle=document.getElementById('me
 }
 </style>
 
+<style id="pulse-mobile-layout-final-v2">
+@media (max-width:760px){
+  /* Trainers: two compact cards per row, normal vertical page scroll */
+  .team-grid{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-auto-flow:row!important;
+    grid-auto-columns:auto!important;
+    overflow:visible!important;
+    overflow-x:visible!important;
+    overflow-y:visible!important;
+    gap:14px 12px!important;
+    padding:0 0 14px!important;
+    scroll-snap-type:none!important;
+  }
+  .team-grid>.trainer-card{width:auto!important;min-width:0!important;scroll-snap-align:none!important;}
+  .trainer-photo{width:100%!important;height:clamp(125px,34vw,190px)!important;object-fit:cover!important;}
+  .trainer-info{padding:11px!important;}
+  .trainer-info h2{font-size:clamp(.9rem,3.6vw,1.08rem)!important;}
+  .trainer-info p{font-size:.74rem!important;line-height:1.4!important;min-height:0!important;margin:6px 0 10px!important;}
+  .trainer-role{font-size:.54rem!important;letter-spacing:.08em!important;}
+  .rating{gap:5px!important;font-size:.68rem!important;}
+  .trainer-more{font-size:.72rem!important;gap:4px!important;}
+  /* Trainer profile: fit the screen and keep the close control visible */
+  #trainerModal.modal{padding:8px!important;align-items:center!important;justify-content:center!important;}
+  #trainerModal .modal-panel{
+    position:relative!important;width:calc(100vw - 20px)!important;max-width:560px!important;
+    max-height:calc(100dvh - 20px)!important;max-height:calc(100vh - 20px)!important;
+    overflow:auto!important;border-radius:12px!important;
+  }
+  #trainerModal .modal-head{padding:54px 14px 14px!important;grid-template-columns:82px minmax(0,1fr)!important;gap:12px!important;align-items:start!important;}
+  #trainerModal .modal-head img{width:82px!important;height:100px!important;object-fit:cover!important;}
+  #trainerModal .modal-head h2{font-size:1.55rem!important;line-height:1.05!important;}
+  #trainerModal .modal-intro{font-size:.78rem!important;line-height:1.4!important;margin:7px 0!important;}
+  #trainerModal .modal-role{font-size:.56rem!important;letter-spacing:.08em!important;}
+  #trainerModal .modal-body{padding:0 14px 16px!important;}
+  #trainerModal .modal-facts{grid-template-columns:1fr 1fr!important;gap:8px!important;margin-bottom:14px!important;}
+  #trainerModal .fact{padding:10px!important;min-width:0!important;}
+  #trainerModal .fact small{font-size:.58rem!important;}
+  #trainerModal .fact strong{font-size:.82rem!important;line-height:1.35!important;overflow-wrap:anywhere!important;}
+  #trainerModal .modal-section{margin-top:12px!important;}
+  #trainerModal .modal-section h3{font-size:.86rem!important;}
+  #trainerModal .modal-section p,#trainerModal .modal-section li{font-size:.78rem!important;line-height:1.45!important;}
+  #trainerModal.open #modalClose{
+    display:grid!important;visibility:visible!important;opacity:1!important;
+    position:fixed!important;top:calc(env(safe-area-inset-top,0px) + 8px)!important;right:12px!important;
+    z-index:100005!important;width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;
+    border-radius:50%!important;background:#c6ff00!important;color:#202320!important;
+    border:2px solid #202320!important;font-size:29px!important;font-weight:900!important;line-height:1!important;
+    box-shadow:0 3px 14px rgba(0,0,0,.35)!important;pointer-events:auto!important;touch-action:manipulation!important;
+  }
+}
+</style>
+
 </body></html>
